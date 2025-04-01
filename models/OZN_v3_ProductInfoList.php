@@ -60,7 +60,6 @@ class OZN_v3_ProductInfoList {
                     ";
 
             $length = count($array);
-            print_r($array);
             $lastIndex = $length - 1;
             for ($i = 0; $i < $length; $i++) {
                 $current = $array[$i];
