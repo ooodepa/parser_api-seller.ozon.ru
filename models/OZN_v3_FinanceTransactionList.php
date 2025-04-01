@@ -2,19 +2,19 @@
 
 $HOME = strlen($_SERVER['DOCUMENT_ROOT']) != 0 ? $_SERVER['DOCUMENT_ROOT'] : $_SERVER['PHP_CRON_HOME'];
 
-class OZN_FinanceTransactionList {
-    static $DB_NAME = 'OZN_FinanceTransactionList';
+class OZN_v3_FinanceTransactionList {
+    static $DB_NAME = 'OZN_v3_FinanceTransactionList';
 
     static function recreateDatabaseAndInsertRows($array) {
         try {
-            OZN_FinanceTransactionList::recreateDatabase();
+            OZN_v3_FinanceTransactionList::recreateDatabase();
 
             global $HOME;
 
             $pdo = new PDO("sqlite:$HOME/database.sqlite");
             $pdo->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
 
-            $DB_NAME = OZN_FinanceTransactionList::$DB_NAME;
+            $DB_NAME = OZN_v3_FinanceTransactionList::$DB_NAME;
             $sql = "INSERT INTO
                         $DB_NAME
                         (
@@ -53,7 +53,7 @@ class OZN_FinanceTransactionList {
             $lastIndex = $length - 1;
             for ($i = 0; $i < $length; $i++) {
                 $current = $array[$i];
-                $DATA = OZN_FinanceTransactionList::getPhpObject_byJson($current);
+                $DATA = OZN_v3_FinanceTransactionList::getPhpObject_byJson($current);
 
                 $sql .= "('"
                     . implode("','", [
@@ -108,7 +108,7 @@ class OZN_FinanceTransactionList {
         $pdo = new PDO("sqlite:$HOME/database.sqlite");
         $pdo->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
 
-        $DB_NAME = OZN_FinanceTransactionList::$DB_NAME;
+        $DB_NAME = OZN_v3_FinanceTransactionList::$DB_NAME;
 
         $sql = "DROP TABLE
                 IF EXISTS
