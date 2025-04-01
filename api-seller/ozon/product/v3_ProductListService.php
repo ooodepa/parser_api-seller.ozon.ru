@@ -3,6 +3,7 @@
 $HOME = strlen($_SERVER['DOCUMENT_ROOT']) != 0 ? $_SERVER['DOCUMENT_ROOT'] : $_SERVER['PHP_CRON_HOME'];
 
 include_once "$HOME/env.php";
+include_once "$HOME/models/OZN_v3_ProductList.php";
 
 class v3_ProductListService {
     public function executeCron() {
@@ -23,6 +24,8 @@ class v3_ProductListService {
         );
 
         file_put_contents($FILE_PATH, $FILE_TEXT);
+
+        OZN_v3_ProductList::recreateDatabaseAndInsertRows($data);
     }
 
     static function getProductIdArray() {

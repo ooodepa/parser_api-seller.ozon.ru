@@ -2,8 +2,6 @@
 
 $HOME = strlen($_SERVER['DOCUMENT_ROOT']) != 0 ? $_SERVER['DOCUMENT_ROOT'] : $_SERVER['PHP_CRON_HOME'];
 
-include_once "$HOME/api-seller/ozon/finance/v3_FinanceTransactionListService.php";
-
 class OZN_FinanceTransactionList {
     static $DB_NAME = 'OZN_FinanceTransactionList';
 
