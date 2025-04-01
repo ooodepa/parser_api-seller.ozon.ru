@@ -3,6 +3,7 @@
 $HOME = strlen($_SERVER['DOCUMENT_ROOT']) != 0 ? $_SERVER['DOCUMENT_ROOT'] : $_SERVER['PHP_CRON_HOME'];
 
 include_once "$HOME/env.php";
+include_once "$HOME/models/OZN_FinanceTransactionList.php";
 
 class v3_FinanceTransactionListService {
     public function executeCron() {
@@ -23,6 +24,8 @@ class v3_FinanceTransactionListService {
         );
 
         file_put_contents($FILE_PATH, $FILE_TEXT);
+
+        OZN_FinanceTransactionList::recreateDatabaseAndInsertRows($data);
     }
 
     static function getAll() {

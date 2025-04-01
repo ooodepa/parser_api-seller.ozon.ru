@@ -1,6 +1,7 @@
 ## Что делает этот код?
 
-При запуске скрипта `main_cron_start.php` в папке `data` создаются файлы JSON с данными полученных с api-seller.ozon.ru.
+При запуске скрипта `main_cron_start.php` в папке `data` создаются JSON файлы данных (с api-seller.ozon.ru)
+и данные загружаются в базу данных database.sqlite.
 
 ```
 .
@@ -20,7 +21,7 @@
 
 ## Как запустить
 
-- Запуск в Windows 10 24H2
+- Запуск в Windows 11 24H2
     1. Скачайте PHP 8.4
         1. Перейдите на оффициальный сайт: https://www.php.net/
         1. Жмём "Downloads" - и попадем на страницу https://www.php.net/downloads.php
@@ -37,7 +38,7 @@
         ```
     1. Запустите через cmd php скрипт
         ```
-        php main_cron_start.php > cron_api-seller-ozon-ru.log
+        php main_cron_start.php > main.log
         ```
 
 ## Как запустить CRON в cPanel, если нельзя указать переменную окружения?
@@ -45,5 +46,5 @@
 В cPanel установите переменную среды через команду export сразу в команде CRON
 
 ```
-export PHP_CRON_HOME=/home/user/cron_api-seller-ozon && php main_cron_start.php > cron_api-seller-ozon-ru.log
+export PHP_CRON_HOME=/home/user/cron_api-seller.ozon.ru && php main_cron_start.php > main.log
 ```
