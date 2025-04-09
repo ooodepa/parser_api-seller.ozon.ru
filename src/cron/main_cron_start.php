@@ -33,14 +33,14 @@ try {
         try {
             ($services[$i])->executeCron();
 
-            $datetime = date('Y-m-d h:i:s');
+            $datetime = date('Y-m-d H:i:s');
             $n = $i + 1;
             $procent = 100 * $n / $count;
             $rounded_procent = round($procent, 2, PHP_ROUND_HALF_UP);
             echo "[$datetime] $n/$count ($rounded_procent%) | Операция выполнена успешно\n";
         }
         catch(Throwable $exception) {
-            $datetime = date('Y-m-d h:i:s');
+            $datetime = date('Y-m-d H:i:s');
             $n = $i + 1;
             $procent = 100 * $n / $count;
             $rounded_procent = round($procent, 2, PHP_ROUND_HALF_UP);

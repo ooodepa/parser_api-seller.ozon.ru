@@ -3,6 +3,7 @@
 $HOME = strlen($_SERVER['DOCUMENT_ROOT']) != 0 ? $_SERVER['DOCUMENT_ROOT'] : $_SERVER['PHP_CRON_HOME'];
 
 include_once "$HOME/env.php";
+include_once "$HOME/models/OZN_v4_ProductInfoAttributes.php";
 
 class v4_ProductInfoAttributesService {
     public function executeCron() {
@@ -53,6 +54,8 @@ class v4_ProductInfoAttributesService {
         );
 
         file_put_contents($FILE_PATH, $FILE_TEXT);
+
+        OZN_v4_ProductInfoAttributes::recreateDatabaseAndInsertRows($data['result']);
     }
 
     static function fetchJson($data) {
