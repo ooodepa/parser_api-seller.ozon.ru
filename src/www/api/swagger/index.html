@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="ru">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Swagger UI</title>
+
+    <link rel="stylesheet" href="main.css" />
+    <link rel="stylesheet" type="text/css" href="/api/api-seller/assets/npm/bootstrap/dist/css/bootstrap.min.css" />
+    <link rel="stylesheet" type="text/css" href="/assets/github.com/swagger-api/swagger-ui/dist/swagger-ui.css" />
+    <script src="/assets/github.com/swagger-api/swagger-ui/dist/swagger-ui-bundle.js" charset="UTF-8"></script>
+    <script src="/assets/github.com/swagger-api/swagger-ui/dist/swagger-ui-standalone-preset.js"
+        charset="UTF-8"></script>
+</head>
+
+<body>
+    <div id="root">
+        <div class="container mt-3">
+            <label for="swagger_ui__select" class="form-label">Конфиг</label>
+            <select id="swagger_ui__select" onchange="SwaggerUI__Helper.innerHtmlSwaggerUI()" class="form-select">
+                <option>/api/swagger/ozon-cron.json</option>
+                <option>https://petstore3.swagger.io/api/v3/openapi.json</option>
+            </select>
+
+            <div id="swagger-ui"></div>
+        </div>
+    </div>
+
+    <script src="main.js"></script>
+</body>
+
+</html>

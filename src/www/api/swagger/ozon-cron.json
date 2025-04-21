@@ -1,0 +1,93 @@
+{
+  "openapi": "3.0.4",
+  "info": {
+    "title": "Документация API",
+    "description": "Документация API в виде SwaggerUI через [конфиг OpenAPI 3.0](/api/swagger/ozon-cron.json)",
+    "contact": { "email": "pavel.innokentevich.galanin@gmail.com" },
+    "version": "2025.04.21"
+  },
+  "externalDocs": {
+    "description": "Документация API Ozon для продавца",
+    "url": "https://docs.ozon.ru/api/seller/"
+  },
+  "tags": [
+    {
+      "name": "finance",
+      "description": "Транзакции OZON",
+      "externalDocs": {
+        "description": "Документация OZON",
+        "url": "https://docs.ozon.ru/api/seller/"
+      }
+    }
+  ],
+  "paths": {
+    "/api/api-seller/ozon/v3/finance/transaction/list/_unique_postings/": {
+      "get": {
+        "tags": ["finance"],
+        "summary": "Уникальный список заказов",
+        "description": "Из списка транзакций составлен список заказов",
+        "responses": {
+          "200": {
+            "description": "Успешно получен список заказов",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "array",
+                  "items": {
+                    "type": "object",
+                    "properties": {
+                      "posting_date": {
+                        "type": "string"
+                      },
+                      "P1": {
+                        "type": "string"
+                      },
+                      "P2": {
+                        "type": "string"
+                      },
+                      "P3": {
+                        "type": "string"
+                      },
+                      "n": {
+                        "type": "string"
+                      },
+                      "repeat_orders": {
+                        "type": "array",
+                        "items": {
+                          "type": "object",
+                          "properties": {
+                            "posting_date": {
+                              "type": "string"
+                            },
+                            "P1": {
+                              "type": "string"
+                            },
+                            "P2": {
+                              "type": "string"
+                            },
+                            "P3": {
+                              "type": "string"
+                            },
+                            "n": {
+                              "type": "string"
+                            }
+                          }
+                        }
+                      }
+                    }
+                  }
+                }
+              }
+            }
+          },
+          "403": {
+            "description": "Не авторизован. Не указан в куки правильный auth_id"
+          },
+          "500": {
+            "description": "Ошибка на сервере"
+          }
+        }
+      }
+    }
+  }
+}
