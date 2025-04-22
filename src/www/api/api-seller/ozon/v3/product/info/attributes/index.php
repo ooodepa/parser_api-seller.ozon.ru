@@ -4,6 +4,9 @@ try {
     $HOME = strlen($_SERVER['DOCUMENT_ROOT']) != 0 ? $_SERVER['DOCUMENT_ROOT'] : $_SERVER['ENV_HOME'];
 
     include "$HOME/api/api-seller/env.php";
+    include "$HOME/api/api-seller/_classes/AuthHelper.class.php";
+
+    AuthHelper::exit_ifNotAuth();
 
     $pdo = new PDO("sqlite:$ENV_SQLITE_DATABASE");
 

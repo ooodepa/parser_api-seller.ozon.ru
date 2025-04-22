@@ -13,6 +13,8 @@ try {
     include_once "$HOME/api-seller/ozon/product/v4_ProductInfoAttributesService.php";
     include_once "$HOME/api-seller/ozon/description-category/v1_DescriptionCategoryTreeService.php";
     include_once "$HOME/api-seller/ozon/finance/v3_FinanceTransactionListService.php";
+    include_once "$HOME/api-seller/ozon/finance/my_PostingList.php";
+    include_once "$HOME/api-seller/ozon/posting/v3_PostingFbsGetService.php";
     include_once "$HOME/api-seller/ozon/posting/v2_PostingFbsActListService.php";
     include_once "$HOME/api-seller/ozon/posting/v2_PostingFbsActGetPostingsService.php";
 
@@ -24,6 +26,8 @@ try {
         new v4_ProductInfoAttributesService(),
         new v1_DescriptionCategoryTreeService(),
         new v3_FinanceTransactionListService(),
+        new my_PostingList(),
+        new v3_PostingFbsGetService(),
         new v2_PostingFbsActListService(),
         new v2_PostingFbsActGetPostingsService(), // только с января 2025 года данные показывает
     ];
@@ -34,6 +38,7 @@ try {
             ($services[$i])->executeCron();
 
             $datetime = date('Y-m-d H:i:s');
+
             $n = $i + 1;
             $procent = 100 * $n / $count;
             $rounded_procent = round($procent, 2, PHP_ROUND_HALF_UP);
