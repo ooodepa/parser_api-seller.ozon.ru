@@ -18,6 +18,8 @@
 `-- data
     |-- v1_DeliveryMethodListService.json       # POST https://api-seller.ozon.ru/v1/delivery-method/list/
     |-- v1_DescriptionCategoryTreeService.json  # POST https://api-seller.ozon.ru/v1/description-category/tree/
+    |-- v1_RatingSummary.json                   # POST https://api-seller.ozon.ru/v1/rating/summary
+    |-- v1_ReturnsList.json                     # POST https://api-seller.ozon.ru/v1/returns/list
     |-- v1_WarehouseListService.json            # POST https://api-seller.ozon.ru/v1/warehouse/list/
     |-- v2_PostingFbsActGetPostingsService.json # POST https://api-seller.ozon.ru/v2/posting/fbs/act/get-postings/list/
     |-- v2_PostingFbsActListService.json        # POST https://api-seller.ozon.ru/v2/posting/fbs/act/list/
