@@ -18,6 +18,7 @@ try {
     include_once "$HOME/api-seller/ozon/posting/v2_PostingFbsActListService.php";
     include_once "$HOME/api-seller/ozon/posting/v2_PostingFbsActGetPostingsService.php";
     include_once "$HOME/api-seller/ozon/rating/v1_RatingSummaryService.php";
+    include_once "$HOME/api-seller/ozon/returns/v1_ReturnsListService.php";
 
     $services = [
         new v1_WarehouseListService(),
@@ -32,6 +33,7 @@ try {
         new v2_PostingFbsActListService(),
         new v2_PostingFbsActGetPostingsService(), // только с января 2025 года данные показывает
         new v1_RatingSummaryService(),
+        new v1_ReturnsListService(),
     ];
 
     $count = count($services);
